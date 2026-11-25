@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/newpal-assets", "crates/newpal-vm", "crates/newpal-prepare", "crates/newpal-game"]
+members = ["crates/newpal-assets", "crates/newpal-vm", "crates/newpal-prepare", "crates/newpal-game", "crates/newpal-ui"]
 
 [workspace.package]
 version = "0.1.0"

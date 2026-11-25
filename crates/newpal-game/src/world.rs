@@ -236,6 +236,8 @@ pub struct World {
     /// scene change requested by the running script: (city, x cell, y cell)
     pub pending_scene: Option<(u16, u16, u16)>,
     pub dialogue: Option<DialogueBox>,
+    /// the front end draws the dialogue box (vector, `newpal-ui::dialogue`); skip the bitmap box
+    pub vector_dialogue: bool,
     text: Option<TextRenderer>,
     /// language layer shared with the VFS (locale can change at runtime)
     pub i18n: std::sync::Arc<I18n>,
@@ -383,6 +385,7 @@ impl World {
             story: Some(VmState::new_game()),
             pending_scene: None,
             dialogue: None,
+            vector_dialogue: false,
             text,
             i18n: vfs.i18n().clone(),
             status: String::new(),
@@ -757,7 +760,9 @@ impl World {
         }        if self.debug_nav {
             self.draw_nav(r);
         }
-        self.draw_dialogue(r, sw, sh);
+        if !self.vector_dialogue {
+            self.draw_dialogue(r, sw, sh);
+        }
     }
 
     /// Debug overlay: blocked cells red, region cells blue, current path green.

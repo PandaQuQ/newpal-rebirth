@@ -18,6 +18,8 @@ opencc = ["newpal-assets/opencc"]
 newpal-assets = { path = "../newpal-assets" }
 newpal-vm = { path = "../newpal-vm" }
 newpal-prepare = { path = "../newpal-prepare" }
+newpal-ui = { path = "../newpal-ui" }
+toml.workspace = true
 wgpu = "30"
 winit = "0.30"
 pollster = "1"

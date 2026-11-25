@@ -9,6 +9,7 @@ mod timing;
 mod world;
 mod hd_compare;
 mod rife_flow_proto;
+mod shell;
 
 use newpal_assets::gamedir::{self, Config};
 use newpal_assets::vfs::{discover_mods, Vfs};
@@ -158,7 +159,7 @@ fn parse_args() -> Result<Args, String> {
         prepare: false, regenerate: false, smooth_backend: None, smooth_quality: None, workers: None, prepare_only: None, prepare_limit: None, smooth_cache: None, prepare_tools: false, hd_prepare: false, compare_hd: false, rife_flow_proto: false, compare_out: None, hd_cache: None, data_root: None, no_hd: false,
         lang: None, lang_dir: None, list_langs: false, lang_then: None, advance: 0, lang_missing: None, ui_sheet: None, ui_cat: "battle".into(), ui_from: 0, ui_count: 48,
     };
-    let mut it = std::env::args().skip(1);
+    let mut it = shell::strip_shell_args(std::env::args().skip(1)).into_iter();
     while let Some(k) = it.next() {
         let mut val = || it.next().ok_or_else(|| format!("{k} needs a value"));
         match k.as_str() {
@@ -248,7 +249,7 @@ fn parse_args() -> Result<Args, String> {
             "--frames" => a.frames = val()?.parse().map_err(|_| "bad frame count")?,
             "--render-hz" => a.render_hz = val()?.parse().map_err(|_| "bad render hz")?,
             "-h" | "--help" => {
-                println!("{HELP}");
+                println!("{HELP}{}", shell::HELP);
                 std::process::exit(0);
             }
             other => return Err(format!("unknown option {other}\n\n{HELP}")),
@@ -301,6 +302,12 @@ fn run() -> Result<(), String> {
     let args = parse_args()?;
     let cfg_path = args.config.clone().unwrap_or_else(Config::default_path);
     let mut cfg = Config::load_from(&cfg_path).map_err(|e| e.to_string())?;
+    if shell::enabled(&args) {
+        // modern front end: launcher -> title menu -> game in one window (crate newpal-ui)
+        let mut args = args;
+        args.video = Video::resolve(&args.video_cli, &cfg.video);
+        return shell::run(args, cfg, cfg_path);
+    }
 
     let game = if args.pick {
         pick_game_dir(&mut cfg, &cfg_path, args.lang.as_deref())?

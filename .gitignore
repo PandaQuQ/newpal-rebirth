@@ -62,3 +62,6 @@ newpal.toml
 
 # local reader-hash file, generated from the player's own install; never commit
 /crates/newpal-assets/tests/golden.json
+
+# bundled OFL font subset (modern-ui only)
+!crates/newpal-ui/fonts/*.ttf

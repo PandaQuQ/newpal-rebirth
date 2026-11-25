@@ -16,11 +16,11 @@ use winit::window::{Window, WindowId};
 
 const CLEAR: wgpu::Color = wgpu::Color { r: 0.02, g: 0.02, b: 0.03, a: 1.0 };
 
-fn instance() -> wgpu::Instance {
+pub(crate) fn instance() -> wgpu::Instance {
     wgpu::Instance::new(wgpu::InstanceDescriptor::new_without_display_handle())
 }
 
-async fn device(instance: &wgpu::Instance, surface: Option<&wgpu::Surface<'_>>) -> Result<(wgpu::Adapter, wgpu::Device, wgpu::Queue), String> {
+pub(crate) async fn device(instance: &wgpu::Instance, surface: Option<&wgpu::Surface<'_>>) -> Result<(wgpu::Adapter, wgpu::Device, wgpu::Queue), String> {
     let adapter = instance
         .request_adapter(&wgpu::RequestAdapterOptions {
             power_preference: wgpu::PowerPreference::LowPower,
@@ -38,7 +38,7 @@ async fn device(instance: &wgpu::Instance, surface: Option<&wgpu::Surface<'_>>) 
 }
 
 /// Scene music + script audio requests of this frame.
-fn sync_audio(vfs: &Vfs, a: &mut Audio, w: &mut World) {
+pub(crate) fn sync_audio(vfs: &Vfs, a: &mut Audio, w: &mut World) {
     if std::mem::take(&mut w.scene_changed) {
         a.enter_scene(vfs, w.city);
     }
