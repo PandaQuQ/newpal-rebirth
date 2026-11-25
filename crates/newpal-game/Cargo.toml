@@ -1,0 +1,28 @@
+[package]
+name = "newpal-game"
+description = "New PAL reborn: winit + wgpu client that runs on the player's own original game data"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "newpal"
+path = "src/main.rs"
+
+[features]
+# pure-Rust OpenCC for `convert = "opencc:t2s"` in language packs
+opencc = ["newpal-assets/opencc"]
+
+[dependencies]
+newpal-assets = { path = "../newpal-assets" }
+newpal-vm = { path = "../newpal-vm" }
+newpal-prepare = { path = "../newpal-prepare" }
+wgpu = "30"
+winit = "0.30"
+pollster = "1"
+bytemuck = { version = "1", features = ["derive"] }
+fontdue = "0.9"
+rfd = "0.18"
+png.workspace = true
+rodio = { version = "0.23", default-features = false, features = ["playback", "mp3", "wav", "vorbis", "flac"] }

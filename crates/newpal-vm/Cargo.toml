@@ -1,0 +1,12 @@
+[package]
+name = "newpal-vm"
+description = "Pluggable talk-script VM for New PAL scripts"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+newpal-assets = { path = "../newpal-assets" }
+[dev-dependencies]
+serde_json.workspace = true

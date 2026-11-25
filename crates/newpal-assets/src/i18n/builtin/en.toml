@@ -1,0 +1,8 @@
+# Engine-owned UI strings (our own words, not original text). Language packs / mods override any of them.
+[strings]
+"ui:dialogue.name_sep" = ": "
+"ui:dialogue.continue" = ""
+"ui:status.no_path" = "no path to ({x}, {y})"
+"ui:status.movie_skipped" = "(movie {name} skipped)"
+"ui:app.title" = "New PAL Reborn (engine preview)"
+"ui:app.pick_folder" = "Select your original New PAL folder"

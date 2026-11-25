@@ -1,0 +1,23 @@
+[package]
+name = "newpal-assets"
+description = "Readers for original New PAL (Steam 2017, SWD3 engine) data + moddable VFS. Ships no game data."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+encoding_rs.workspace = true
+png.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+sha2.workspace = true
+ferrous-opencc = { version = "0.4", optional = true, default-features = false, features = ["t2s-conversion"] }
+
+[features]
+# optional pure-Rust OpenCC converter for `convert = "opencc:t2s"` in a language pack (adds a few MB of dictionaries)
+opencc = ["dep:ferrous-opencc"]
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.56"

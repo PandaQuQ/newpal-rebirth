@@ -1,0 +1,25 @@
+[package]
+name = "newpal-prepare"
+description = "Launcher asset preparation: locally generated in-between sprite frames (RIFE / CPU) packed into a cache. Ships no game data."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+newpal-assets = { path = "../newpal-assets" }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+png.workspace = true
+zstd = "0.13"
+brotli = "8"
+rayon = "1.10"
+
+[[bin]]
+name = "newpal-patch"
+path = "src/bin/newpal-patch.rs"
+
+[[bin]]
+name = "newpal-i18n"
+path = "src/bin/newpal-i18n.rs"

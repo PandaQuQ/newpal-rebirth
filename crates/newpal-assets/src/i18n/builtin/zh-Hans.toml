@@ -1,0 +1,8 @@
+# Engine-owned UI strings, Simplified Chinese.
+[strings]
+"ui:dialogue.name_sep" = "\uff1a"
+"ui:dialogue.continue" = ""
+"ui:status.no_path" = "\u65e0\u6cd5\u5230\u8fbe ({x}, {y})"
+"ui:status.movie_skipped" = "\uff08\u5df2\u8df3\u8fc7\u52a8\u753b {name}\uff09"
+"ui:app.title" = "\u65b0\u4ed9\u5251\u5947\u4fa0\u4f20 Reborn\uff08\u5f15\u64ce\u9884\u89c8\uff09"
+"ui:app.pick_folder" = "\u9009\u62e9\u300a\u65b0\u4ed9\u5251\u5947\u4fa0\u4f20\u300b\u539f\u7248\u6e38\u620f\u6587\u4ef6\u5939 / Select your original New PAL folder"

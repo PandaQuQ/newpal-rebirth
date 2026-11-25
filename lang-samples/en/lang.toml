@@ -1,0 +1,44 @@
+[meta]
+markup = "1"
+name = "English (SAMPLE: a few test lines only)"
+wrap = "word"
+fonts = ["system:segoeui.ttf"]
+
+[strings]
+"ui:dialogue.name_sep" = ": "
+"ui:dialogue.continue" = "[Enter] continue"
+"ui:status.no_path" = "can't walk there ({x}, {y})"
+"ui:status.movie_skipped" = "(movie {name} skipped)"
+
+# talk:<script>:<pos> keys of the opening script 104; the 3rd and later lines are left untranslated on purpose
+"talk:104:0024" = "<speaker>Test Speaker</speaker><color=5>[en sample] This line comes from the sample English pack. It is long enough to show word wrapping: the renderer has to break it at spaces instead of cutting a word in half.</color>"
+"talk:104:007e" = "<speaker>Test Speaker B</speaker><color=5>[en sample] Second translated line.<br/>It has a hard line break.</color>"
+
+# The game's own strings (battle / menu / shop / messages): keys are <category>:<original id>. {1}, {2} = the
+# game's printf arguments in order. Try: newpal-game --lang en --ui-sheet sheet.png --ui-cat battle
+"battle:1006" = "Attack"
+"battle:1039" = "Escape failed!!"
+"battle:1040" = "Escaped!!"
+"battle:1043" = "Stole [{1}] successfully!!"
+"battle:1099" = "Victory"
+"battle:1100" = "Each member gets {1} EXP"
+"battle:1101" = "{1, plural, one {Got # tael} other {Got # taels}}"
+"battle:1104" = "{1} reached level {2}"
+"menu:1562" = "Use"
+"menu:1563" = "Sort"
+"menu:1564" = "Discard"
+"menu:1565" = "Discard it?"
+"menu:1607" = "OK"
+"menu:1608" = "Cancel"
+"menu:1616" = "Save"
+"menu:1617" = "Load"
+"menu:1619" = "Settings"
+"menu:1620" = "Quit"
+"shop:1632" = "Welcome! Buying or selling?"
+"shop:1633" = "Buy"
+"shop:1636" = "Sell"
+"shop:1637" = "Total {1}  Balance {2}"
+"shop:1638" = "That comes to {1} taels. Buy?"
+"shop:2066" = "Price"
+"shop:2067" = "Funds"
+"msg:2029" = "Defeated the enemy! Got <color=6>{1}</color><color=4> coins</color>"

@@ -1,0 +1,12 @@
+[meta]
+markup = "1"
+name = "\u7b80\u4f53\u4e2d\u6587 (SAMPLE: \u5c11\u91cf\u6d4b\u8bd5\u884c + \u7e41\u7b80\u8f6c\u6362)"
+wrap = "char"
+# untranslated lines are converted from the original Traditional text with this tiny table
+# (use "opencc:t2s" with `--features opencc` for a complete conversion)
+convert = "t2s.tsv"
+
+[strings]
+"ui:dialogue.name_sep" = "\uff1a"
+"ui:dialogue.continue" = "\u3010\u56de\u8f66\u3011\u7ee7\u7eed"
+"talk:104:0024" = "<speaker>测试角色</speaker><color=5>[简体示例] 这句话来自简体示例语言包，用来检查字体回落与自动换行。</color>"

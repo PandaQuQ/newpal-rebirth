@@ -1,0 +1,64 @@
+# build output
+/target/
+target-*/
+**/*.rs.bk
+# local config (contains your own game path)
+newpal.toml
+
+# ---------------------------------------------------------------------------
+# NEVER commit original game data or anything extracted / derived from it.
+# ---------------------------------------------------------------------------
+/mods/
+/extracted/
+/screenshots/
+# local analysis / working folders (contain original text or art)
+/i18n-shots/
+/i18n-local/
+/lang-local/
+/exe-analysis/
+/i18n-out/
+/newpal-share/
+/ui-shots/
+/cache/
+/output/
+/re/
+/research/
+**/i18n-shots/
+**/i18n-local/
+**/lang-local/
+**/exe-analysis/
+**/i18n-out/
+**/ui-shots/
+# original formats and common media
+*.tsw
+*.act
+*.snd
+*.lmf
+*.dat
+*.cm
+*.mkf
+*.rng
+*.pal
+*.exe
+*.bik
+*.mp3
+*.mp4
+*.wav
+*.ogg
+*.flac
+*.bmp
+*.jpg
+*.jpeg
+*.png
+# HD patches / frames
+*.nres
+/patch*/
+# fonts: only the OFL subset under crates/newpal-ui/fonts is allowed (force-added, with its licence)
+*.ttf
+*.ttc
+*.otf
+# doc diagrams are fine
+!docs/**/*.svg
+
+# local reader-hash file, generated from the player's own install; never commit
+/crates/newpal-assets/tests/golden.json
